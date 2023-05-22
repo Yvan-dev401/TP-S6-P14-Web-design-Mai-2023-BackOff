@@ -24,12 +24,11 @@ class ContenuController extends Controller
         $base64 = base64_encode($content);
         $description = $request->input('description');
         $date = Carbon::now();
-        $dateString = $date->format('d-m-Y');
 
         DB::table('contenu')->insert([
             'titre' => $titre,
             'description' => $description,
-            'date' => $dateString,
+            'date' => $date,
             'photo' => $base64,
         ]);
 
